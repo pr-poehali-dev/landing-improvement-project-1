@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import ReadingForm from '@/components/ReadingForm';
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -196,10 +197,19 @@ const Index = () => {
                 Помогу увидеть истинные причины происходящего через расклады карт Таро. Работаю бережно, без давления и страшных прогнозов.
               </p>
               <div className="flex gap-4">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 hover-glow">
+                <Button 
+                  size="lg" 
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 hover-glow"
+                  onClick={() => document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Заказать расклад
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-primary/50 text-primary hover:bg-primary/10"
+                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Обо мне
                 </Button>
               </div>
@@ -373,6 +383,8 @@ const Index = () => {
           </Card>
         </div>
       </section>
+
+      <ReadingForm />
 
       <footer className="py-8 px-4 border-t border-primary/20">
         <div className="container mx-auto text-center">
