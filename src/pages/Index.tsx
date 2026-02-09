@@ -190,7 +190,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-                Таролог-<span className="text-primary">ясновидец</span>
+                Гадание по картам <span className="text-primary">Таро</span>
               </h1>
               <p className="text-xl text-foreground/80 mb-8">
                 Помогу увидеть истинные причины происходящего через расклады карт Таро. Работаю бережно, без давления и страшных прогнозов.
@@ -319,64 +319,54 @@ const Index = () => {
       </section>
 
       <section id="contact" className="py-20 px-4 bg-gradient-to-b from-[#1e1640] to-[#1A1F2C]">
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Контакты</h2>
             <p className="text-xl text-foreground/70">Закажите расклад или задайте вопрос</p>
           </div>
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20 animate-fade-in">
             <CardContent className="p-8">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-12">
+                <div className="space-y-8">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Имя и возраст</label>
-                    <Input
-                      type="text"
-                      placeholder="Например: Мария, 28 лет"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="bg-background/50 border-primary/30"
-                    />
+                    <h3 className="text-2xl font-semibold mb-6 text-center">Связаться со мной</h3>
+                    <div className="space-y-4">
+                      <a href="https://t.me/romanpalaris" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:border-secondary hover-glow transition-all">
+                        <Icon name="Send" size={24} className="text-primary" />
+                        <div>
+                          <p className="font-medium">Telegram</p>
+                          <p className="text-sm text-foreground/70">@romanpalaris</p>
+                        </div>
+                      </a>
+                      <a href="https://wa.me/89262031206" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:border-secondary hover-glow transition-all">
+                        <Icon name="MessageCircle" size={24} className="text-primary" />
+                        <div>
+                          <p className="font-medium">WhatsApp</p>
+                          <p className="text-sm text-foreground/70">+7 926 203-12-06</p>
+                        </div>
+                      </a>
+                      <a href="tel:+79262031206" className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:border-secondary hover-glow transition-all">
+                        <Icon name="Phone" size={24} className="text-primary" />
+                        <div>
+                          <p className="font-medium">Телефон</p>
+                          <p className="text-sm text-foreground/70">+7 926 203-12-06</p>
+                        </div>
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Связь</label>
-                    <Input
-                      type="text"
-                      placeholder="Telegram / WhatsApp / Телефон"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-background/50 border-primary/30"
-                    />
+                  <div className="text-center pt-4">
+                    <img src="https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/bucket/27faa474-653a-4a0c-baee-000f352c7a62.jpeg" alt="QR код Telegram" className="w-48 h-48 mx-auto rounded-lg shadow-lg" />
+                    <p className="text-sm text-foreground/70 mt-3">Сканируйте для связи в Telegram</p>
                   </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Ваш вопрос</label>
-                  <Textarea
-                    placeholder="Опишите ситуацию или задайте вопрос..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-background/50 border-primary/30 min-h-32"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover-glow">
-                  Заказать расклад
-                </Button>
-              </form>
-              <div className="mt-8 pt-8 border-t border-primary/20 text-center">
-                <p className="text-foreground/70 mb-4">Или напишите напрямую:</p>
-                <div className="flex flex-wrap justify-center gap-6">
-                  <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-secondary transition-colors">
-                    <Icon name="Send" size={20} />
-                    <span>Telegram</span>
-                  </a>
-                  <a href="https://wa.me/79991234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-secondary transition-colors">
-                    <Icon name="MessageCircle" size={20} />
-                    <span>WhatsApp</span>
-                  </a>
-                  <a href="tel:+79991234567" className="flex items-center gap-2 text-primary hover:text-secondary transition-colors">
-                    <Icon name="Phone" size={20} />
-                    <span>+7 (999) 123-45-67</span>
-                  </a>
+                <div className="flex flex-col items-center justify-center">
+                  <h3 className="text-2xl font-semibold mb-6 text-center">Оплата консультации</h3>
+                  <img src="https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/bucket/9cb9675c-4a9a-4ca8-b337-b205826e61f5.png" alt="QR код для оплаты" className="w-64 h-64 rounded-lg shadow-lg" />
+                  <p className="text-sm text-foreground/70 mt-4 text-center">Сканируйте для оплаты расклада</p>
+                  <div className="mt-6 p-4 bg-secondary/10 rounded-lg border border-secondary/30">
+                    <p className="text-center text-foreground/80"><span className="font-semibold">Базовый расклад:</span> 500₽</p>
+                    <p className="text-center text-foreground/80"><span className="font-semibold">Подробный расклад:</span> 1000₽</p>
+                  </div>
                 </div>
               </div>
             </CardContent>
