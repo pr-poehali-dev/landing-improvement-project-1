@@ -206,8 +206,8 @@ const Index = () => {
             </div>
             <div className="animate-slide-up">
               <img
-                src="https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/files/6213ff6e-3eca-4d80-b2cb-7721b430343d.jpg"
-                alt="Mystical Consulting"
+                src="https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/bucket/7a37de46-c3b8-4514-a7c2-5fadf548a4ea.jpeg"
+                alt="Карты Таро и свечи"
                 className="rounded-2xl shadow-2xl shadow-primary/20 hover-glow"
               />
             </div>
