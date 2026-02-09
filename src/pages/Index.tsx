@@ -24,85 +24,76 @@ const Index = () => {
   const services = [
     {
       icon: 'Sparkles',
-      title: 'Стратегическое консультирование',
-      description: 'Разработка индивидуальной стратегии развития бизнеса с учётом энергетических потоков и циклов роста',
+      title: 'Расклад Таро на один вопрос',
+      price: '500 ₽',
+      description: 'Быстрый и точный ответ на ваш конкретный вопрос. Получите ясность в волнующей ситуации.',
     },
     {
-      icon: 'Target',
-      title: 'Бизнес-прогнозирование',
-      description: 'Анализ перспектив и выявление оптимальных точек принятия решений для максимальной эффективности',
+      icon: 'BookOpen',
+      title: 'Подробный расклад',
+      price: '1000 ₽',
+      description: 'Глубокий анализ ситуации с детальным толкованием карт и практическими рекомендациями.',
     },
     {
-      icon: 'Compass',
-      title: 'Личный коучинг',
-      description: 'Индивидуальное сопровождение руководителей на пути к достижению целей и раскрытию потенциала',
-    },
-    {
-      icon: 'Lightbulb',
-      title: 'Трансформация бизнеса',
-      description: 'Глубинная работа с корпоративной культурой и внутренними процессами для качественных изменений',
+      icon: 'Heart',
+      title: 'Оплата по сердцу',
+      price: 'По желанию',
+      description: 'Вы сами определяете стоимость консультации исходя из своих возможностей и ценности полученной помощи.',
     },
   ];
 
-  const portfolio = [
-    {
-      title: 'Технологический стартап',
-      result: 'Рост выручки на 340% за 8 месяцев',
-      image: 'https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/files/43b15bcf-bf83-41a6-8297-c09d6e7c5bf7.jpg',
-    },
-    {
-      title: 'Ритейл-сеть',
-      result: 'Открытие 12 новых точек без потери качества',
-      image: 'https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/files/26760d96-c648-4cf3-bb18-96b1a87772f7.jpg',
-    },
-    {
-      title: 'Консалтинговое агентство',
-      result: 'Полная реструктуризация и выход на новые рынки',
-      image: 'https://cdn.poehali.dev/projects/14515480-37e5-4355-998d-e470df304a32/files/6213ff6e-3eca-4d80-b2cb-7721b430343d.jpg',
-    },
+  const questions = [
+    'Была ли измена?',
+    'Что он/она чувствует и думает обо мне?',
+    'Вернётся ли он/она?',
+    'Когда встречу свою любовь?',
+    'Почему не получается с деньгами?',
+    'Что меня ждёт в ближайшее время?',
+    'Моё ли это предназначение?',
+    'Стоит ли переезжать?',
   ];
 
   const testimonials = [
     {
-      name: 'Елена Соколова',
-      position: 'CEO Tech Solutions',
-      text: 'Работа с консультантом полностью изменила вектор развития компании. Мы не просто достигли целей — мы их превзошли.',
-      avatar: '👩‍💼',
+      name: 'Мария',
+      position: '32 года',
+      text: 'Расклад помог мне понять истинные причины ситуации. Всё сбылось именно так, как было предсказано. Очень благодарна за поддержку и мудрые советы.',
+      avatar: '🌸',
     },
     {
-      name: 'Михаил Петров',
-      position: 'Основатель Retail Group',
-      text: 'Невероятная глубина анализа и точность рекомендаций. Каждая встреча приносила конкретные результаты.',
-      avatar: '👨‍💼',
+      name: 'Александра',
+      position: '28 лет',
+      text: 'Получила чёткие ответы на свои вопросы без навязывания и страшных прогнозов. Карты показали то, что я чувствовала, но боялась признать.',
+      avatar: '✨',
     },
     {
-      name: 'Анна Волкова',
-      position: 'Директор Marketing Agency',
-      text: 'Уникальный подход к стратегическому планированию помог нам увидеть возможности там, где мы видели препятствия.',
-      avatar: '👩‍🦰',
+      name: 'Екатерина',
+      position: '35 лет',
+      text: 'Работа очень деликатная и глубокая. Таролог не просто раскладывает карты, а помогает увидеть ситуацию целиком и принять правильное решение.',
+      avatar: '🌙',
     },
   ];
 
   const faqs = [
     {
-      question: 'Как проходит первая консультация?',
-      answer: 'Первая встреча длится 90 минут. Мы погружаемся в текущую ситуацию, выявляем ключевые точки роста и намечаем стратегический план действий.',
+      question: 'Как проходит расклад?',
+      answer: 'Вы задаёте свой вопрос, указываете имя и возраст. Я провожу расклад карт Таро, анализирую их значение и отправляю вам подробное толкование с рекомендациями.',
     },
     {
-      question: 'Сколько времени занимает работа?',
-      answer: 'Минимальный цикл работы — 3 месяца. За это время происходят первые значимые трансформации. Долгосрочное сопровождение от 6 месяцев.',
+      question: 'Сколько времени занимает ответ?',
+      answer: 'Обычно расклад готов в течение 24 часов. В особых случаях может потребоваться немного больше времени для глубокого анализа.',
     },
     {
-      question: 'Какие гарантии результата?',
-      answer: 'Мы работаем на результат и фиксируем конкретные метрики в начале сотрудничества. 95% клиентов достигают или превышают поставленные цели.',
+      question: 'Можно ли задать несколько вопросов?',
+      answer: 'Да, для этого выбирайте подробный расклад за 1000 рублей. Он позволяет рассмотреть ситуацию с разных сторон и получить развёрнутые ответы.',
     },
     {
-      question: 'С какими компаниями вы работаете?',
-      answer: 'Работаем с бизнесом от стартапов до крупных корпораций. Главное — готовность к изменениям и стремление к развитию.',
+      question: 'Дадите ли вы страшные предсказания?',
+      answer: 'Нет, я работаю бережно и без давления. Карты показывают возможности и тенденции, а не неизбежную судьбу. Вы всегда можете изменить ситуацию.',
     },
     {
-      question: 'Можно ли начать с пробной консультации?',
-      answer: 'Да, мы предлагаем первую диагностическую сессию на 60 минут. Это позволит понять подход и оценить потенциал сотрудничества.',
+      question: 'Как оплатить консультацию?',
+      answer: 'Оплата возможна любым удобным способом: по карте, через СБП или по системе «оплата по сердцу» — сумму определяете вы сами.',
     },
   ];
 
@@ -110,14 +101,14 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#1A1F2C] via-[#1e1640] to-[#1A1F2C]">
       <nav className="fixed top-0 w-full z-50 bg-[#1A1F2C]/80 backdrop-blur-md border-b border-primary/20">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-primary">Mystical Consult</div>
+          <div className="text-2xl font-bold text-primary">Таролог-ясновидец</div>
           
           <div className="hidden md:flex gap-6">
             <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">
               Услуги
             </a>
-            <a href="#portfolio" className="text-foreground/80 hover:text-primary transition-colors">
-              Портфолио
+            <a href="#questions" className="text-foreground/80 hover:text-primary transition-colors">
+              Вопросы
             </a>
             <a href="#testimonials" className="text-foreground/80 hover:text-primary transition-colors">
               Отзывы
@@ -154,11 +145,11 @@ const Index = () => {
                 Услуги
               </a>
               <a
-                href="#portfolio"
+                href="#questions"
                 onClick={closeMenu}
                 className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg"
               >
-                Портфолио
+                Вопросы
               </a>
               <a
                 href="#testimonials"
@@ -199,19 +190,17 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-balance">
-                Трансформация через
-                <span className="text-primary"> мудрость</span> и
-                <span className="text-secondary"> стратегию</span>
+                Таролог-<span className="text-primary">ясновидец</span>
               </h1>
               <p className="text-xl text-foreground/80 mb-8">
-                Глубинное консультирование для бизнес-лидеров, готовых к качественным изменениям и достижению амбициозных целей
+                Помогу увидеть истинные причины происходящего через расклады карт Таро. Работаю бережно, без давления и страшных прогнозов.
               </p>
               <div className="flex gap-4">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 hover-glow">
-                  Начать путь
+                  Заказать расклад
                 </Button>
                 <Button size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
-                  Узнать больше
+                  Обо мне
                 </Button>
               </div>
             </div>
@@ -232,7 +221,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Услуги</h2>
             <p className="text-xl text-foreground/70">Индивидуальный подход к каждому клиенту</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <Card
                 key={index}
@@ -244,6 +233,7 @@ const Index = () => {
                     <Icon name={service.icon} size={32} className="text-primary" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
+                  <p className="text-3xl font-bold text-secondary mb-3">{service.price}</p>
                   <p className="text-foreground/70">{service.description}</p>
                 </CardContent>
               </Card>
@@ -252,30 +242,22 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-20 px-4">
+      <section id="questions" className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Портфолио</h2>
-            <p className="text-xl text-foreground/70">Истории успешных трансформаций</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">С чем обращаются</h2>
+            <p className="text-xl text-foreground/70">Типичные вопросы клиентов</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {portfolio.map((project, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {questions.map((question, index) => (
               <Card
                 key={index}
-                className="bg-card/50 backdrop-blur-sm border-primary/20 overflow-hidden hover-glow transition-all duration-300 hover:scale-105 animate-fade-in"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="bg-card/50 backdrop-blur-sm border-primary/20 hover-glow transition-all duration-300 hover:scale-105 animate-fade-in"
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent"></div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-secondary font-medium">{project.result}</p>
+                <CardContent className="p-6 flex items-center gap-3">
+                  <Icon name="Sparkles" size={20} className="text-secondary flex-shrink-0" />
+                  <p className="text-foreground/90">{question}</p>
                 </CardContent>
               </Card>
             ))}
@@ -339,57 +321,62 @@ const Index = () => {
       <section id="contact" className="py-20 px-4 bg-gradient-to-b from-[#1e1640] to-[#1A1F2C]">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Связаться с нами</h2>
-            <p className="text-xl text-foreground/70">Начните свою трансформацию сегодня</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Контакты</h2>
+            <p className="text-xl text-foreground/70">Закажите расклад или задайте вопрос</p>
           </div>
           <Card className="bg-card/50 backdrop-blur-sm border-primary/20 animate-fade-in">
             <CardContent className="p-8">
               <form className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Имя</label>
-                  <Input
-                    type="text"
-                    placeholder="Ваше имя"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="bg-background/50 border-primary/30"
-                  />
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Имя и возраст</label>
+                    <Input
+                      type="text"
+                      placeholder="Например: Мария, 28 лет"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="bg-background/50 border-primary/30"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Связь</label>
+                    <Input
+                      type="text"
+                      placeholder="Telegram / WhatsApp / Телефон"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="bg-background/50 border-primary/30"
+                    />
+                  </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-background/50 border-primary/30"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Сообщение</label>
+                  <label className="block text-sm font-medium mb-2">Ваш вопрос</label>
                   <Textarea
-                    placeholder="Расскажите о вашем запросе..."
+                    placeholder="Опишите ситуацию или задайте вопрос..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="bg-background/50 border-primary/30 min-h-32"
                   />
                 </div>
                 <Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover-glow">
-                  Отправить запрос
+                  Заказать расклад
                 </Button>
               </form>
-              <div className="mt-8 pt-8 border-t border-primary/20 grid md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <Icon name="Mail" size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm text-foreground/70">info@mystical-consult.ru</p>
-                </div>
-                <div>
-                  <Icon name="Phone" size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm text-foreground/70">+7 (999) 123-45-67</p>
-                </div>
-                <div>
-                  <Icon name="MapPin" size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm text-foreground/70">Москва, Россия</p>
+              <div className="mt-8 pt-8 border-t border-primary/20 text-center">
+                <p className="text-foreground/70 mb-4">Или напишите напрямую:</p>
+                <div className="flex flex-wrap justify-center gap-6">
+                  <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-secondary transition-colors">
+                    <Icon name="Send" size={20} />
+                    <span>Telegram</span>
+                  </a>
+                  <a href="https://wa.me/79991234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-secondary transition-colors">
+                    <Icon name="MessageCircle" size={20} />
+                    <span>WhatsApp</span>
+                  </a>
+                  <a href="tel:+79991234567" className="flex items-center gap-2 text-primary hover:text-secondary transition-colors">
+                    <Icon name="Phone" size={20} />
+                    <span>+7 (999) 123-45-67</span>
+                  </a>
                 </div>
               </div>
             </CardContent>
@@ -399,7 +386,7 @@ const Index = () => {
 
       <footer className="py-8 px-4 border-t border-primary/20">
         <div className="container mx-auto text-center">
-          <p className="text-foreground/60">© 2024 Mystical Consult. Все права защищены.</p>
+          <p className="text-foreground/60">© 2024 Таролог-ясновидец. Все права защищены.</p>
         </div>
       </footer>
     </div>
