@@ -78,6 +78,10 @@ const ReadingForm = () => {
           contact: '',
           receipt: '',
         });
+        
+        setTimeout(() => {
+          setSubmitStatus({ type: null, message: '' });
+        }, 8000);
       } else {
         setSubmitStatus({
           type: 'error',
@@ -214,17 +218,36 @@ const ReadingForm = () => {
 
               {submitStatus.type && (
                 <div
-                  className={`p-4 rounded-lg flex items-start gap-3 ${
+                  className={`p-6 rounded-lg flex flex-col items-center gap-3 animate-fade-in ${
                     submitStatus.type === 'success'
-                      ? 'bg-green-500/10 text-green-500'
-                      : 'bg-red-500/10 text-red-500'
+                      ? 'bg-green-500/10 border-2 border-green-500/30'
+                      : 'bg-red-500/10 border-2 border-red-500/30'
                   }`}
                 >
-                  <Icon
-                    name={submitStatus.type === 'success' ? 'Check' : 'X'}
-                    size={20}
-                  />
-                  <p className="text-sm">{submitStatus.message}</p>
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center ${
+                    submitStatus.type === 'success'
+                      ? 'bg-green-500/20'
+                      : 'bg-red-500/20'
+                  }`}>
+                    <Icon
+                      name={submitStatus.type === 'success' ? 'CheckCircle2' : 'XCircle'}
+                      size={40}
+                      className={submitStatus.type === 'success' ? 'text-green-500' : 'text-red-500'}
+                    />
+                  </div>
+                  <p className={`text-lg font-semibold text-center ${
+                    submitStatus.type === 'success' ? 'text-green-500' : 'text-red-500'
+                  }`}>
+                    {submitStatus.type === 'success' ? '✨ Заявка отправлена!' : 'Ошибка отправки'}
+                  </p>
+                  <p className="text-sm text-center text-foreground/70">
+                    {submitStatus.message}
+                  </p>
+                  {submitStatus.type === 'success' && (
+                    <p className="text-xs text-center text-foreground/50 mt-2">
+                      Свяжусь с вами в ближайшее время 🔮
+                    </p>
+                  )}
                 </div>
               )}
 
