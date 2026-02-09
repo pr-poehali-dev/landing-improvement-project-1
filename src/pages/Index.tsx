@@ -12,11 +12,14 @@ import {
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
+
+  const closeMenu = () => setMobileMenuOpen(false);
 
   const services = [
     {
@@ -108,6 +111,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 bg-[#1A1F2C]/80 backdrop-blur-md border-b border-primary/20">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold text-primary">Mystical Consult</div>
+          
           <div className="hidden md:flex gap-6">
             <a href="#services" className="text-foreground/80 hover:text-primary transition-colors">
               Услуги
@@ -125,10 +129,64 @@ const Index = () => {
               Контакты
             </a>
           </div>
-          <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
+          
+          <Button className="hidden md:flex bg-secondary text-secondary-foreground hover:bg-secondary/90">
             Консультация
           </Button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-primary p-2"
+            aria-label="Toggle menu"
+          >
+            <Icon name={mobileMenuOpen ? 'X' : 'Menu'} size={28} />
+          </button>
         </div>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-[#1A1F2C] border-t border-primary/20 animate-fade-in">
+            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+              <a
+                href="#services"
+                onClick={closeMenu}
+                className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg"
+              >
+                Услуги
+              </a>
+              <a
+                href="#portfolio"
+                onClick={closeMenu}
+                className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg"
+              >
+                Портфолио
+              </a>
+              <a
+                href="#testimonials"
+                onClick={closeMenu}
+                className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg"
+              >
+                Отзывы
+              </a>
+              <a
+                href="#faq"
+                onClick={closeMenu}
+                className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg"
+              >
+                FAQ
+              </a>
+              <a
+                href="#contact"
+                onClick={closeMenu}
+                className="text-foreground/80 hover:text-primary transition-colors py-2 text-lg"
+              >
+                Контакты
+              </a>
+              <Button className="mt-2 bg-secondary text-secondary-foreground hover:bg-secondary/90">
+                Консультация
+              </Button>
+            </div>
+          </div>
+        )}
       </nav>
 
       <section className="pt-32 pb-20 px-4 relative overflow-hidden">
