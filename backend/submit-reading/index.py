@@ -1,10 +1,14 @@
 import json
 import os
-import requests
-import boto3
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
+import base64
 
 def handler(event: dict, context) -> dict:
-    '''Обработка заявок на гадание с отправкой в Telegram'''
+    '''Обработка заявок на гадание с отправкой на email'''
     
     method = event.get('httpMethod', 'POST')
     
@@ -48,66 +52,54 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'error': 'Заполните все обязательные поля'})
         }
     
-    bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    smtp_password = os.environ.get('SMTP_PASSWORD')
     
-    if not bot_token or not chat_id:
+    if not smtp_password:
         return {
             'statusCode': 500,
             'headers': {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            'body': json.dumps({'error': 'Telegram не настроен'})
+            'body': json.dumps({'error': 'Email не настроен'})
         }
     
-    message_text = f"""🔮 Новая заявка на гадание
-
-👤 Имя: {name}
-🎂 Возраст: {age}
-❓ Вопрос: {question}
-📱 Обратная связь: {contact}"""
+    email_from = 'palaris@inbox.ru'
+    email_to = 'palaris@inbox.ru'
     
-    telegram_url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
+    msg = MIMEMultipart()
+    msg['From'] = email_from
+    msg['To'] = email_to
+    msg['Subject'] = f'🔮 Новая заявка на гадание от {name}'
+    
+    body = f"""Новая заявка на гадание:
+
+Имя: {name}
+Возраст: {age}
+Вопрос: {question}
+Обратная связь: {contact}
+
+---
+Письмо отправлено автоматически с сайта"""
+    
+    msg.attach(MIMEText(body, 'plain', 'utf-8'))
+    
+    if receipt_base64:
+        try:
+            receipt_data = base64.b64decode(receipt_base64)
+            part = MIMEBase('application', 'octet-stream')
+            part.set_payload(receipt_data)
+            encoders.encode_base64(part)
+            part.add_header('Content-Disposition', f'attachment; filename=чек_{name}.jpg')
+            msg.attach(part)
+        except Exception:
+            pass
     
     try:
-        response = requests.post(telegram_url, json={
-            'chat_id': chat_id,
-            'text': message_text,
-            'parse_mode': 'HTML'
-        })
-        
-        if not response.ok:
-            raise Exception(f"Telegram API error: {response.text}")
-        
-        if receipt_base64:
-            import base64
-            receipt_data = base64.b64decode(receipt_base64)
-            
-            s3 = boto3.client('s3',
-                endpoint_url='https://bucket.poehali.dev',
-                aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
-                aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY']
-            )
-            
-            filename = f"receipts/{context.request_id}.jpg"
-            s3.put_object(
-                Bucket='files',
-                Key=filename,
-                Body=receipt_data,
-                ContentType='image/jpeg'
-            )
-            
-            receipt_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{filename}"
-            
-            requests.post(
-                f"https://api.telegram.org/bot{bot_token}/sendPhoto",
-                json={
-                    'chat_id': chat_id,
-                    'photo': receipt_url,
-                    'caption': '📄 Чек об оплате'
-                }
-            )
+        server = smtplib.SMTP_SSL('smtp.mail.ru', 465)
+        server.login(email_from, smtp_password)
+        server.send_message(msg)
+        server.quit()
         
         return {
             'statusCode': 200,
@@ -117,7 +109,7 @@ def handler(event: dict, context) -> dict:
             },
             'body': json.dumps({
                 'success': True,
-                'message': 'Заявка отправлена! Свяжемся с вами в ближайшее время.'
+                'message': 'Заявка отправлена! Свяжусь с вами в ближайшее время.'
             })
         }
     

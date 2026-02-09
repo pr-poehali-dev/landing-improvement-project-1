@@ -362,6 +362,13 @@ const Index = () => {
                           <p className="text-sm text-foreground/70">+7 926 203-12-06</p>
                         </div>
                       </a>
+                      <a href="mailto:palaris@inbox.ru" className="flex items-center gap-3 p-4 bg-background/50 rounded-lg border border-primary/20 hover:border-secondary hover-glow transition-all">
+                        <Icon name="Mail" size={24} className="text-primary" />
+                        <div>
+                          <p className="font-medium">Email</p>
+                          <p className="text-sm text-foreground/70">palaris@inbox.ru</p>
+                        </div>
+                      </a>
                     </div>
                   </div>
                   <div className="text-center pt-4">
